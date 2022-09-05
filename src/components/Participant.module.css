@@ -1,0 +1,19 @@
+.participantName{
+    font-weight: 700;
+}
+.bottomCard{
+    background-color: #F1EDDF;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.spacer{
+    flex-grow: 1;
+}
+.button{
+    background-color: #EFDCB6;
+    margin: 10px;
+    border-radius: 100px;
+    padding: 10px;
+}

@@ -1,0 +1,9 @@
+.particpantContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 30px;
+    justify-items: center;
+    padding: 100px 150px 0 150px;
+}

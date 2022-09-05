@@ -1,0 +1,21 @@
+.root{
+    display: flex;
+}
+.left{
+    width: 50vw;
+    height: calc(100vh - 4rem);
+    background-color: #F1EDDF;
+    padding: 100px 50px;
+}
+.right{
+    width: 50vw;
+    height: calc(100vh - 4rem);
+    padding: 100px 50px;    
+}
+.desc{
+    font-size: 24px;
+}
+.title{
+    font-size: 36px;
+    font-weight: 700;
+}
