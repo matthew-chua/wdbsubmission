@@ -2,31 +2,34 @@ import NavBar from "../components/nav-bar";
 import type { NextPage } from "next";
 import Participant from "../components/participant";
 import classes from "./Voting.module.css";
+import { useEffect, useState } from "react";
 
-const Voting: NextPage = () => {
-  const DUMMY_DATA = [
-    {
-      name: "name 1",
-      image: "",
-      score: 3400,
+export async function getStaticProps() {
+  
+  const res = await fetch("https://raw.githubusercontent.com/web-at-berkeley/fa22-frontend-api-endpoint/main/data.json")
+  const data = await res.json()
+  return {
+    props: {
+      data,
     },
-    {
-      name: "name 2",
-      image: "",
-      score: 3500,
-    },
-    {
-      name: "name 3",
-      image: "",
-      score: 3600,
-    },
-  ];
+  }
+}
+
+const Voting: NextPage = (props) => {
+
+  const [runners, setRunners] = useState([]);
+
+  useEffect(() => {
+    setRunners(props.data.voting);
+    console.log(runners)
+  }, []);
+
   return (
     <>
       <NavBar />
       <div className={classes.particpantContainer}>
-        {DUMMY_DATA.map((data) => (
-          <Participant />
+        {runners.map((data) => (
+          <Participant runner={data} runners={runners} setRunners={setRunners} />
         ))}
       </div>
     </>

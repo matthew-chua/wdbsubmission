@@ -1,16 +1,17 @@
 .root{
     display: flex;
+    font-family: 'Poppins';
+
 }
 .left{
     width: 50vw;
-    height: calc(100vh - 4rem);
     background-color: #F1EDDF;
     padding: 100px 50px;
+    min-height: calc(100vh - 4rem);
 }
 .right{
     width: 50vw;
-    height: calc(100vh - 4rem);
-    padding: 100px 50px;    
+    padding: 100px 50px; 
 }
 .desc{
     font-size: 24px;
