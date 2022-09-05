@@ -1,0 +1,16 @@
+.root{
+    background-image: url(../../public/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vh - 4rem);
+    color: white;
+    font-size: 72px;
+    font-weight: 700;
+    padding-top: 18rem;
+    padding-left: 8rem;
+}
+
+.subtitle{
+    font-weight: 700;
+    font-size: 24px;
+}
