@@ -1,13 +1,23 @@
 import React from "react";
-import classes from "./PastVictorsCard.module.css";
+import { Accordion } from "@chakra-ui/react";
 import Victor from "./Victor";
 
-export default function PastVictorsCard(props) {
+import type { VictorType } from "../pages/victors";
+interface Props {
+  data: VictorType[];
+}
+
+export default function PastVictorsCard(props: Props) {
   return (
-    <div className={classes.root}>
-      {props.data.map((victor) => (
-        <Victor data={victor} />
+    <Accordion defaultIndex={[]} allowMultiple>
+      {props.data.map((victor: VictorType) => (
+        <Victor
+          key={victor.name + victor.year}
+          name={victor.name}
+          description={victor.description}
+          year={victor.year}
+        />
       ))}
-    </div>
+    </Accordion>
   );
 }

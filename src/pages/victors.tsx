@@ -1,8 +1,33 @@
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
+
+//components
 import NavBar from "../components/nav-bar";
 import PastVictorsCard from "../components/PastVictorsCard";
+
+//css
 import classes from "./Victors.module.css";
+
+export interface Runner {
+  name: string;
+  score: number;
+  image: string;
+}
+
+export interface VictorType {
+  name: string;
+  year: number;
+  description: string;
+}
+
+export interface APIData {
+  voting: Runner[];
+  victors: Victor[];
+}
+
+export interface Props {
+  data: APIData;
+}
 
 export async function getStaticProps() {
   const res = await fetch(
@@ -16,26 +41,9 @@ export async function getStaticProps() {
   };
 }
 
-const Victors: NextPage = (props) => {
-  const DUMMY_DATA = [
-    {
-      name: "name 1",
-      year: "2021",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      name: "name 2",
-      year: "2020",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      name: "name 3",
-      year: "2019",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-  ];
+const Victors: NextPage = (props: Props) => {
 
-  const [victors, setVictors] = useState([]);
+  const [victors, setVictors] = useState<VictorType[]>([]);
 
   useEffect(() => {
     setVictors(props.data.victors);
